@@ -3,6 +3,8 @@ import my_event
 import turtle
 import random
 import heapq
+from numba import cuda, float32
+import numpy as np
 
 class BouncingSimulator:
     def __init__(self, num_balls):
@@ -19,8 +21,9 @@ class BouncingSimulator:
         self.canvas_height = turtle.screensize()[1]
         print(self.canvas_width, self.canvas_height)
 
-        ball_radius = 0.05 * self.canvas_width
+        
         for i in range(self.num_balls):
+            ball_radius = random.uniform(0.01, 0.09) * self.canvas_width
             x = -self.canvas_width + (i+1)*(2*self.canvas_width/(self.num_balls+1))
             y = 0.0
             vx = 10*random.uniform(-1.0, 1.0)
@@ -102,6 +105,6 @@ class BouncingSimulator:
         turtle.done()
 
 # num_balls = int(input("Number of balls to simulate: "))
-num_balls = 10
+num_balls = 5
 my_simulator = BouncingSimulator(num_balls)
 my_simulator.run()

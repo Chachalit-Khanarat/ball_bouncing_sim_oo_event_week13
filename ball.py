@@ -9,7 +9,7 @@ class Ball:
         self.vx = vx
         self.vy = vy
         self.color = color
-        self.mass = 100*size**2
+        self.mass = 4/3*math.pi*(size**2)
         self.count = 0
         self.id = id
         self.canvas_width = turtle.screensize()[0]

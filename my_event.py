@@ -1,8 +1,9 @@
 class Event:
-    def __init__(self, time, ball_a, ball_b):
+    def __init__(self, time, ball_a, ball_b, paddle):
         self.time = time
         self.a = ball_a
         self.b = ball_b
+        self.paddle = paddle
 
         if ball_a is not None:
             self.count_a = ball_a.count
@@ -20,6 +21,5 @@ class Event:
         if (self.a is not None) and (self.a.count != self.count_a):
             return False
         if (self.b is not None) and (self.b.count != self.count_b):
-            return False        
+            return False
         return True
-
